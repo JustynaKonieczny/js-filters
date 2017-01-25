@@ -15,6 +15,8 @@
         <script src="node_modules/material-design-lite/material.min.js"></script>
         <script src="systemjs.config.js"></script>
         <script>
+            var electron = require("electron");
+
             System.import("app").catch(function(err){
                 console.error(err);
             });
