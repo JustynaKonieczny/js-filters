@@ -1,8 +1,12 @@
 import { Component } from "@angular/core"
+import { Canvas } from "./canvas/canvas.component"
+import { Header } from "./header/header.component"
 
 @Component({
+    moduleId: module.id,
     selector: "app-filters",
-    template: `<h1>Default JS-Filters component</h1>`
+    templateUrl: "./app.component.html",
+    entryComponents: [ Canvas, Header ]
 })
 
 export class AppComponent {}
