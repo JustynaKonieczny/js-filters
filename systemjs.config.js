@@ -2,6 +2,7 @@
     var map = {
         "app": "app",
         "@angular": "node_modules/@angular",
+        "fs": "@node/fs",
         "rxjs": "node_modules/rxjs"
     };
 
