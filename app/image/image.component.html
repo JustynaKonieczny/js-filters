@@ -1,0 +1,9 @@
+<div>
+    <h4>Original image</h4>
+</div>
+<div [hidden]="_imgSrc">
+    <h6>No image loaded</h6>
+</div>
+<div>
+    <img id="originalImage" [src]="_imgSrc" *ngIf="_imgSrc"/>
+</div>

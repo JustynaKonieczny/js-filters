@@ -1,21 +1,24 @@
 import { Component } from "@angular/core"
 import { UtilService } from "../util.service"
+import { ImageService } from "../image.service"
 
 @Component({
     moduleId: module.id,
     selector: "app-header",
     templateUrl: "./header.component.html",
-    providers: [ UtilService ]
 })
 
 export class Header {
-    constructor(private UtilService: UtilService) {}
+    constructor(private _UtilService: UtilService, private _ImageService: ImageService) {}
 
     handleOpenFile() {
-        this.UtilService.openFileDialog()
+        this._UtilService.openFileDialog()
             .then(data => {
-                //@TODO: send an event to Canvas cmp and setImageData
-                // this.setImageData(data)
+                if(data) {
+                    this._ImageService.setImageData(data)
+                    let imgObj = this._UtilService.convertImageToObject(data)
+                    this._ImageService.setImageObject(imgObj)
+                }
             })
             .catch(err => {
                 console.log("Error loading image data from file.", err)
@@ -23,6 +26,6 @@ export class Header {
     }
 
     handleSaveFile() {
-        this.UtilService.saveFileDialog()
+        this._UtilService.saveFileDialog()
     }
 }

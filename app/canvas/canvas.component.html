@@ -1,1 +1,9 @@
-<canvas #filtersCanvas [attr.width]="_size" [attr.height]="_size"></canvas>
+<div>
+    <h4>Modified image</h4>
+</div>
+<div [hidden]="_hasImage">
+    <h6>No image loaded</h6>
+</div>
+<div>
+    <canvas #filtersCanvas width="0" height="0" [hidden]="!_hasImage"></canvas>
+</div>

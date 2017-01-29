@@ -32,11 +32,18 @@ export class UtilService {
                 if(err) {
                     reject(err)
                 } else {
-                    console.log("Loaded image data from disk.", data)
+                    console.log("Loaded image data from disk.")
                     resolve(data)
                 }
             })
         })
+    }
+
+    convertImageToObject(data) {
+        var rawData = new Uint8Array(data)
+        let image = new Image()
+        image.src = "data:image/png;base64," + window.btoa(String.fromCharCode.apply(null, rawData))
+        return image
     }
 
     saveFileDialog() {
