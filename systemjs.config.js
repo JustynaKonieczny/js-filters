@@ -3,6 +3,7 @@
         "app": "app",
         "@angular": "node_modules/@angular",
         "fs": "@node/fs",
+        "image": "node_modules/image",
         "rxjs": "node_modules/rxjs"
     };
 

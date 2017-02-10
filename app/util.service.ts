@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core"
 import { readFile } from "fs"
+import { Image } from "Image"
 export const { remote } = electron
 export const { dialog } = remote
 
@@ -32,6 +33,8 @@ export class UtilService {
                 if(err) {
                     reject(err)
                 } else {
+                    debugger;
+
                     console.log("Loaded image data from disk.")
                     resolve(data)
                 }
@@ -40,9 +43,9 @@ export class UtilService {
     }
 
     convertImageToObject(data) {
-        var rawData = new Uint8Array(data)
+        debugger;
         let image = new Image()
-        image.src = "data:image/png;base64," + window.btoa(String.fromCharCode.apply(null, rawData))
+        image.src = "data:image/png;base64," + window.btoa(String.fromCharCode.apply(null, new Uint8Array(data)))
         return image
     }
 

@@ -6,23 +6,42 @@ import { Observable } from "rxjs/Observable"
 export class ImageService {
     private _image: any
     private _imageData: Uint8Array
-    private _subject: Subject<any> = new Subject<any>()
-    private _imageObservable: Observable<any> = this._subject.asObservable()
+    private _originalSubject: Subject<any> = new Subject<any>()
+    private _modifiedSubject: Subject<any> = new Subject<any>()
+
+    setImage(img) {
+        this._image = img
+    }
+
+    getImage() {
+        return this._image
+    }
 
     setImageData(data) {
-        this._imageData = new Uint8Array(data)
+        this._imageData = new Uint8ClampedArray(data)
     }
 
     getImageData() {
+        debugger;
         return this._imageData
     }
 
-    setImageObject(img: any) {
+    setOriginalImageObject(img: any) {
         this._image = img
-        this._subject.next(this._image)
+        this._originalSubject.next(this._image)
+        this.setModifiedImageObject(img)
     }
 
-    getImageObject(): Observable<any> {
-        return this._imageObservable;
+    getOriginalImageObject(): Observable<any> {
+        return this._originalSubject.asObservable()
+    }
+
+    setModifiedImageObject(img: any) {
+        this._image = img
+        this._modifiedSubject.next(this._image)
+    }
+
+    getModifiedImageObject(): Observable<any> {
+        return this._modifiedSubject.asObservable()
     }
 }
