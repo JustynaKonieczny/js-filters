@@ -44,8 +44,8 @@ export class Header {
         // this._FiltersService.invert()
     }
 
-    saveModifiedImage(modifiedData) {
-        this._ImageService.setImageData(modifiedData.pixels)
-        this._ImageService.setModifiedImageObject(modifiedData.image)
+    saveModifiedImage(img) {
+        this._ImageService.setImageData(img.pixels)
+        this._ImageService.setModifiedImageObject(img.image)
     }
 }

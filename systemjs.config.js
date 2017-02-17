@@ -3,12 +3,7 @@
         "app": "app",
         "@angular": "node_modules/@angular",
         "fs": "@node/fs",
-        "events": "@node/events",
-        "path": "@node/path",
-        "util": "@node/util",
-        "stream": "@node/stream",
-        "semver": "node_modules/semver",
-        "sharp": "node_modules/sharp/lib",
+        "jpegjs": "node_modules/jpeg-js",
         "rxjs": "node_modules/rxjs"
     };
 
@@ -20,13 +15,9 @@
       "rxjs": {
           defaultExtension: "js"
       },
-      "semver": {
-          defaultExtension: 'js',
-          main: 'semver.js'
-      },
-      "sharp": {
-          defaultExtension: 'js',
-          main: 'index.js'
+      "jpegjs": {
+          main: "index.js",
+          defaultExtension: "js"
       }
     };
 

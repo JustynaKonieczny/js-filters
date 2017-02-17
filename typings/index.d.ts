@@ -2,4 +2,4 @@
 /// <reference path="globals/jasmine/index.d.ts" />
 /// <reference path="globals/node/index.d.ts" />
 declare var electron: any;
-/// <reference path="modules/sharp/index.d.ts" />
+declare var jpegjs: any;

@@ -18,7 +18,8 @@ export class ImageService {
     }
 
     setImageData(data) {
-        this._imageData = new Uint8ClampedArray(data)
+        //keeps image data (BUFFER! not UInt8Arr, at least for now, should be changed in next build)
+        this._imageData = data
     }
 
     getImageData() {

@@ -1,7 +1,5 @@
-/// <reference path="../typings/modules/sharp/index.d.ts"/>
 import { Injectable } from "@angular/core"
 import { readFile } from "fs"
-import * as Sharp from "sharp"
 export const { remote } = electron
 export const { dialog } = remote
 
@@ -34,10 +32,6 @@ export class UtilService {
                 if(err) {
                     reject(err)
                 } else {
-                    debugger;
-                    // let width =
-                    // (new Image(imageType)).encode(buffer, 1)
-                    let pixels = Sharp(path)
                     console.log("Loaded image data from disk.")
                     resolve(data)
                 }
@@ -48,7 +42,7 @@ export class UtilService {
     convertImageToObject(data) {
         debugger;
         let image = new Image()
-        image.src = "data:image/png;base64," + window.btoa(String.fromCharCode.apply(null, new Uint8Array(data)))
+        image.src = "data:image/png;base64," + window.btoa(String.fromCharCode.apply(null, data))
         return image
     }
 

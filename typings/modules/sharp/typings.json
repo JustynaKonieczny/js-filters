@@ -1,8 +1,0 @@
-{
-  "resolution": "main",
-  "tree": {
-    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/c52ae152ef4ee51247da5a70d29756591233f787/sharp/index.d.ts",
-    "raw": "registry:dt/sharp#0.17.0+20170127202025",
-    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/c52ae152ef4ee51247da5a70d29756591233f787/sharp/index.d.ts"
-  }
-}
