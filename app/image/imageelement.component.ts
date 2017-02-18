@@ -7,7 +7,7 @@ import { ImageService } from "../image.service"
     templateUrl: "./image.component.html"
 })
 
-export class Image {
+export class ImageElement {
     private _imgSrc: string
 
     constructor(private _ImageService: ImageService) {}
@@ -17,7 +17,7 @@ export class Image {
     }
 
     getImageUpdate() {
-        this._ImageService.getImageObject().subscribe(img => {
+        this._ImageService.getOriginalImageObject().subscribe(img => {
             this.setImageSource(img.src)
         }, err => {
             console.log("An error occured while getting image subscription update.", err)

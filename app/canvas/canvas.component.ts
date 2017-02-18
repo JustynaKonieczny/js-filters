@@ -8,8 +8,6 @@ import { ImageService } from "../image.service"
 })
 
 export class Canvas {
-    private _width: number
-    private _height: number
     private _hasImage: boolean
     private _ctx: CanvasRenderingContext2D
 
@@ -20,12 +18,12 @@ export class Canvas {
     }
 
     ngAfterViewInit() {
-        this.getOriginalImageUpdates()
+        this.getModifiedImageUpdates()
         this._ctx = this.canvas.nativeElement.getContext("2d")
     }
 
-    getOriginalImageUpdates() {
-        this._ImageService.getImageObject().subscribe(img => {
+    getModifiedImageUpdates() {
+        this._ImageService.getModifiedImageObject().subscribe(img => {
             this.setCanvasImage(img)
         }, err => {
             console.log("An error occured while getting image subscription update.", err)
@@ -35,13 +33,11 @@ export class Canvas {
     }
 
     setCanvasImage(img) {
-        debugger;
-        this._hasImage = true
-        // this._width = img.width
-        // this._height = img.height
-        // this._ctx = this.canvas.nativeElement.getContext("2d")
+        if(!this._hasImage) {
+            this._hasImage = true
+        }
         this.updateCanvasSize(img.width, img.height)
-        this._ctx.drawImage(img, 0, 0, img.width, img.height)
+        this._ctx.putImageData(img, 0, 0)
     }
 
     updateCanvasSize(width, height) {
