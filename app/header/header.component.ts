@@ -2,6 +2,7 @@ import { Component } from "@angular/core"
 import { UtilService } from "../util.service"
 import { ImageService } from "../image.service"
 import { FiltersService } from "../filters.service";
+let jpegjs = require("node_modules/jpeg-js")
 
 @Component({
     moduleId: module.id,
@@ -16,7 +17,9 @@ export class Header {
         this._UtilService.openFileDialog()
             .then(data => {
                 if(data) {
-                    this._ImageService.setImageData(data)
+                    let decodedData = jpegjs.decode(data)
+                    let decodedImgObject = new ImageData(new Uint8ClampedArray(decodedData.data), decodedData.width, decodedData.height)
+                    this._ImageService.setImageData(decodedImgObject)
                     let imgObj = this._UtilService.convertImageToObject(data)
                     this._ImageService.setOriginalImageObject(imgObj)
                 }
@@ -35,17 +38,17 @@ export class Header {
     }
 
     handleGrayscale() {
-        let image = this._ImageService.getImage()
-        let data = this._ImageService.getImageData()
-        this.saveModifiedImage(this._FiltersService.grayscale(image, data))
+        debugger
+        let imageData = this._ImageService.getImageData()
+        this.saveModifiedImage(this._FiltersService.grayscale(imageData))
     }
 
     handleInvert() {
         // this._FiltersService.invert()
     }
 
-    saveModifiedImage(img) {
-        this._ImageService.setImageData(img.pixels)
-        this._ImageService.setModifiedImageObject(img.image)
+    saveModifiedImage(modifiedImage) {
+        this._ImageService.setImageData(modifiedImage)
+        this._ImageService.setModifiedImageObject(modifiedImage)
     }
 }

@@ -3,6 +3,7 @@
         "app": "app",
         "@angular": "node_modules/@angular",
         "fs": "@node/fs",
+        "filetype": "node_modules/file-type",
         "jpegjs": "node_modules/jpeg-js",
         "rxjs": "node_modules/rxjs"
     };
@@ -14,6 +15,10 @@
       },
       "rxjs": {
           defaultExtension: "js"
+      },
+      "filetype": {
+        main: "index.js",
+        defaultExtension: "js"
       },
       "jpegjs": {
           main: "index.js",

@@ -3,3 +3,4 @@
 /// <reference path="globals/node/index.d.ts" />
 declare var electron: any;
 declare var jpegjs: any;
+declare var filetype: any;

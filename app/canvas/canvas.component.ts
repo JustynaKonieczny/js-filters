@@ -37,12 +37,7 @@ export class Canvas {
             this._hasImage = true
         }
         this.updateCanvasSize(img.width, img.height)
-        //@todo: refactor condition to something logical AND to always use putImageData
-        if(typeof img === "object" && !img.hasOwnProperty("data")) {
-            this._ctx.drawImage(img, 0, 0)
-        } else {
-            this._ctx.putImageData(img, 0, 0)
-        }
+        this._ctx.putImageData(img, 0, 0)
     }
 
     updateCanvasSize(width, height) {

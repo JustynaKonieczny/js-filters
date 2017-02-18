@@ -1,11 +1,13 @@
 import { Injectable } from "@angular/core"
 import { Subject } from "rxjs/Subject"
 import { Observable } from "rxjs/Observable"
+let jpegjs = require("node_modules/jpeg-js")
 
 @Injectable()
 export class ImageService {
     private _image: any
     private _imageData: Uint8Array
+    private _imageType: any
     private _originalSubject: Subject<any> = new Subject<any>()
     private _modifiedSubject: Subject<any> = new Subject<any>()
 
@@ -18,19 +20,28 @@ export class ImageService {
     }
 
     setImageData(data) {
-        //keeps image data (BUFFER! not UInt8Arr, at least for now, should be changed in next build)
         this._imageData = data
     }
 
     getImageData() {
-        debugger;
         return this._imageData
+    }
+
+    setImageType(type) {
+        this._imageType = type
+    }
+
+    getImageType() {
+        return this._imageType
     }
 
     setOriginalImageObject(img: any) {
         this._image = img
         this._originalSubject.next(this._image)
-        this.setModifiedImageObject(img)
+        //@TODO: add other file types decoding
+        let decodedData = this.getImageData().data
+        let originalImageData = new ImageData(decodedData, img.width, img.height)
+        this.setModifiedImageObject(originalImageData)
     }
 
     getOriginalImageObject(): Observable<any> {
