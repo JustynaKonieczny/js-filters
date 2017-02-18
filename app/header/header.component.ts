@@ -38,13 +38,14 @@ export class Header {
     }
 
     handleGrayscale() {
-        debugger
         let imageData = this._ImageService.getImageData()
         this.saveModifiedImage(this._FiltersService.grayscale(imageData))
     }
 
     handleInvert() {
         // this._FiltersService.invert()
+        let imageData = this._ImageService.getImageData()
+        this.saveModifiedImage(this._FiltersService.invert(imageData))
     }
 
     saveModifiedImage(modifiedImage) {

@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core"
-let jpegjs = require("node_modules/jpeg-js")
 
 @Injectable()
 export class FiltersService {
@@ -10,9 +9,7 @@ export class FiltersService {
     }
 
     grayscale(currentImageData) {
-        debugger;
         //@TODO: implement factor slider to set the image brighter/darker
-        //@TODO: refactor code, logic and types
         // let factor = 0.0
         let width: number = currentImageData.width
         let height: number = currentImageData.height
@@ -27,12 +24,22 @@ export class FiltersService {
             newPixels[i+2] = brightness
         }
 
-        //always use ImageData as var type being loaded onto canvas, otterwise C: it won't work
         newImage = new ImageData(newPixels, width, height)
         return newImage
     }
 
-    invert(data) {
+    invert(currentImageData) {
+        let width: number = currentImageData.width
+        let height: number = currentImageData.height
+        let newPixels = currentImageData.data
 
+        for(let i=0; i<newPixels.length; i+=4) {
+            newPixels[i] = Math.abs(newPixels[i] - 255)
+            newPixels[i+1] = Math.abs(newPixels[i+1] - 255)
+            newPixels[i+2] = Math.abs(newPixels[i+2] - 255)
+        }
+
+        let newImage = new ImageData(newPixels, width, height)
+        return newImage
     }
 }

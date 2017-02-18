@@ -46,7 +46,6 @@ export class UtilService {
     }
 
     convertImageToObject(data) {
-        debugger;
         let image = new Image()
         image.src = "data:image/png;base64," + window.btoa(String.fromCharCode.apply(null, data))
         return image
