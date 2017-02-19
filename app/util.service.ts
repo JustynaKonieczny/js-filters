@@ -47,7 +47,12 @@ export class UtilService {
 
     convertImageToObject(data) {
         let image = new Image()
-        image.src = "data:image/png;base64," + window.btoa(String.fromCharCode.apply(null, data))
+        let uarray = new Uint8Array(data)
+        let strings = [], chunksize = 0xffff
+        for(let i=0; i*chunksize<uarray.length; i++) {
+            strings.push(String.fromCharCode.apply(null, uarray.subarray(i*chunksize, (i+1)*chunksize)))
+        }
+        image.src = "data:image/png;base64," + window.btoa(strings.join(""))
         return image
     }
 
