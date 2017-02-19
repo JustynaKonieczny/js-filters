@@ -6,6 +6,9 @@
         <!-- stylesheets -->
         <link rel="stylesheet" href="node_modules/material-design-lite/material.min.css">
         <link rel="stylesheet" href="node_modules/material-design-icons/iconfont/material-icons.css">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <link rel="stylesheet" href="./node_modules/loaders.css/loaders.min.css">
+        <link rel="stylesheet" href="./app-bootstrap.css">
 
         <!-- scripts -->
         <script src="node_modules/core-js/client/shim.min.js"></script>
@@ -23,6 +26,17 @@
         </script>
     </head>
     <body>
-        <app-filters>Loading...</app-filters>
+        <app-filters>
+            <div class="filters-loader">
+                <h2 class="filters-loader-header">JS-FILTERS</h2>
+                <div class="loader-inner line-scale-pulse-out-rapid">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </app-filters>
     </body>
 </html>

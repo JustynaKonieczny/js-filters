@@ -1,0 +1,25 @@
+.filters-main-header {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+    text-align: center;
+    color: #92CDCF;
+    background-color: #31353D;
+}
+
+.filters-main-subheader {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+    text-align: center;
+    color: #C7C7CF;
+}
+
+.filters-image-center {
+    display: flex;
+    justify-content: center;
+}

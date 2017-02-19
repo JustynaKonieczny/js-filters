@@ -6,12 +6,12 @@ import { ImageService } from "./image.service";
 import { FiltersService } from "./filters.service";
 import { Canvas }   from './canvas/canvas.component'
 import { Header } from "./header/header.component"
-import { ImageElement } from "./image/imageelement.component"
+import { Image } from "./image/image.component"
 
 @NgModule({
     imports:        [ BrowserModule ],
     providers:      [ UtilService, ImageService, FiltersService ],
-    declarations:   [ AppComponent, Canvas, Header, ImageElement ],
+    declarations:   [ AppComponent, Canvas, Header, Image ],
     bootstrap:      [ AppComponent ]
 })
 

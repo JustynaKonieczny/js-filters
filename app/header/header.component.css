@@ -1,0 +1,23 @@
+.filters-header {
+    background-color: #31353D;
+}
+
+.filters-header button i,
+.filters-header button span {
+    color: #EEEFF7;
+}
+
+.filters-header button:disabled i,
+.filters-header button:disabled span {
+    pointer-events: none;
+    color: #445878;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.filters-header button:active {
+    background-color: #92CDCF;
+}

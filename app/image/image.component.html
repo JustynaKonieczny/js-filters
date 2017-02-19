@@ -1,9 +1,9 @@
 <div>
-    <h4>Original image</h4>
+    <h4 class="filters-main-header">ORIGINAL IMAGE</h4>
 </div>
 <div [hidden]="_imgSrc">
-    <h6>No image loaded</h6>
+    <h6 class="filters-main-subheader">No image loaded</h6>
 </div>
-<div>
+<div class="filters-image-center">
     <img id="originalImage" [src]="_imgSrc" *ngIf="_imgSrc"/>
 </div>

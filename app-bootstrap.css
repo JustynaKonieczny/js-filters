@@ -1,0 +1,43 @@
+html, h2, h4, h6, button {
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
+.filters-loader {
+    background: #1c1d21; /* Old browsers */
+    background: -moz-linear-gradient(45deg, #1C1D21 0%, #445878 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, #1C1D21 0%,#445878 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #1C1D21 0%,#445878 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.filters-loader-header {
+    color: #FAFAFA;
+    font-size: 24px;
+    margin-bottom: 30px;
+    border: 3px solid #FAFAFA;
+    padding: 0px 20px;
+}
+
+.line-scale-pulse-out-rapid > div:nth-child(1) {
+    background: #F15A5A;
+}
+
+.line-scale-pulse-out-rapid > div:nth-child(2) {
+    background: #F0C419;
+}
+
+.line-scale-pulse-out-rapid > div:nth-child(3) {
+    background: #4EBA6F;
+}
+
+.line-scale-pulse-out-rapid > div:nth-child(4) {
+    background: #2D95BF;
+}
+
+.line-scale-pulse-out-rapid > div:nth-child(5) {
+    background: #955BA5;
+}

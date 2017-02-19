@@ -1,9 +1,9 @@
 <div>
-    <h4>Modified image</h4>
+    <h4 class="filters-main-header">MODIFIED IMAGE</h4>
 </div>
 <div [hidden]="_hasImage">
-    <h6>No image loaded</h6>
+    <h6 class="filters-main-subheader">No image loaded</h6>
 </div>
-<div>
+<div class="filters-image-center">
     <canvas #filtersCanvas width="0" height="0" [hidden]="!_hasImage"></canvas>
 </div>

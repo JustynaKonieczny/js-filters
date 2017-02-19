@@ -8,10 +8,27 @@ let jpegjs = require("node_modules/jpeg-js")
     moduleId: module.id,
     selector: "app-header",
     templateUrl: "./header.component.html",
+    styleUrls: ["./header.component.css"]
 })
 
 export class Header {
+    private _hasImage: boolean = false;
+
     constructor(private _UtilService: UtilService, private _ImageService: ImageService, private _FiltersService: FiltersService) {}
+
+    ngAfterViewInit() {
+        this.getModifiedImageUpdates()
+    }
+
+    getModifiedImageUpdates() {
+        this._ImageService.getModifiedImageObject().subscribe(() => {
+            this._hasImage = true
+        }, err => {
+            console.log("An error occured while getting image subscription update.", err)
+        }, () => {
+            console.log("Got image subscription update.")
+        })
+    }
 
     handleOpenFile() {
         this._UtilService.openFileDialog()

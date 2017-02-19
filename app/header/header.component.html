@@ -1,20 +1,20 @@
-<header class="">
+<header class="filters-header">
     <button class="mdl-button mdl-js-button mdl-js-ripple-effect" (click)="handleOpenFile()">
         <i class="material-icons">file_download</i>
     </button>
-    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" (click)="handleSaveFile()">
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" (click)="handleSaveFile()" [disabled]="!_hasImage">
         <i class="material-icons">file_upload</i>
     </button>
-    <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" [disabled]="!_hasImage">
         <span (click)="handleBlur()">Blur</span>
     </button>
-    <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" [disabled]="!_hasImage">
         <span (click)="handleGrayscale()">Grayscale</span>
     </button>
-    <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" [disabled]="!_hasImage">
         <span (click)="handleInvert()">Invert</span>
     </button>
-    <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" [disabled]="!_hasImage">
         <span (click)="handleSepia()">Sepia</span>
     </button>
 </header>

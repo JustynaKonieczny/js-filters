@@ -4,7 +4,8 @@ import { ImageService } from "../image.service"
 @Component({
     moduleId: module.id,
     selector: "app-canvas",
-    templateUrl: "./canvas.component.html"
+    templateUrl: "./canvas.component.html",
+    styleUrls: ["./canvas.component.css"]
 })
 
 export class Canvas {

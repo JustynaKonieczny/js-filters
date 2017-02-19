@@ -4,10 +4,11 @@ import { ImageService } from "../image.service"
 @Component({
     moduleId: module.id,
     selector: "app-image",
-    templateUrl: "./image.component.html"
+    templateUrl: "./image.component.html",
+    styleUrls: ["./image.component.css"]
 })
 
-export class ImageElement {
+export class Image {
     private _imgSrc: string
 
     constructor(private _ImageService: ImageService) {}
