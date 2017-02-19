@@ -32,11 +32,28 @@ export class FiltersService {
         let width: number = currentImageData.width
         let height: number = currentImageData.height
         let newPixels = currentImageData.data
+        let newImage: ImageData
 
         for(let i=0; i<newPixels.length; i+=4) {
             newPixels[i] = Math.abs(newPixels[i] - 255)
             newPixels[i+1] = Math.abs(newPixels[i+1] - 255)
             newPixels[i+2] = Math.abs(newPixels[i+2] - 255)
+        }
+
+        newImage = new ImageData(newPixels, width, height)
+        return newImage
+    }
+
+    sepia(currentImageData) {
+        debugger
+        let width: number = currentImageData.width
+        let height: number = currentImageData.height
+        let newPixels = currentImageData.data
+
+        for(let i=0; i<newPixels.length; i+=4) {
+            newPixels[i] = Math.min(255, (newPixels[i] * .393) + (newPixels[i+1] * .769) + (newPixels[i+2] * .189))
+            newPixels[i+1] = Math.min(255, (newPixels[i] * .349) + (newPixels[i+1] * .686) + (newPixels[i+2] * .168))
+            newPixels[i+2] = Math.min(255, (newPixels[i] * .272) + (newPixels[i+1] * .534) + (newPixels[i+2] * .131))
         }
 
         let newImage = new ImageData(newPixels, width, height)

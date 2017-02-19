@@ -6,7 +6,7 @@ let jpegjs = require("node_modules/jpeg-js")
 @Injectable()
 export class ImageService {
     private _image: any
-    private _imageData: Uint8Array
+    private _imageData: ImageData
     private _imageType: any
     private _originalSubject: Subject<any> = new Subject<any>()
     private _modifiedSubject: Subject<any> = new Subject<any>()

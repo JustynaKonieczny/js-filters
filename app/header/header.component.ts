@@ -43,9 +43,13 @@ export class Header {
     }
 
     handleInvert() {
-        // this._FiltersService.invert()
         let imageData = this._ImageService.getImageData()
         this.saveModifiedImage(this._FiltersService.invert(imageData))
+    }
+
+    handleSepia() {
+        let imageData = this._ImageService.getImageData()
+        this.saveModifiedImage(this._FiltersService.sepia(imageData))
     }
 
     saveModifiedImage(modifiedImage) {
