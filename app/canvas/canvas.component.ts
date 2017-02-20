@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef } from "@angular/core"
 import { ImageService } from "../image.service"
+import { UtilService } from "../util.service"
 
 @Component({
     moduleId: module.id,
@@ -20,6 +21,7 @@ export class Canvas {
 
     ngAfterViewInit() {
         this.getModifiedImageUpdates()
+        this._ImageService.setCanvasElement(this.canvas)
         this._ctx = this.canvas.nativeElement.getContext("2d")
     }
 

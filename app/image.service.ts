@@ -1,13 +1,13 @@
 import { Injectable } from "@angular/core"
 import { Subject } from "rxjs/Subject"
 import { Observable } from "rxjs/Observable"
-let jpegjs = require("node_modules/jpeg-js")
 
 @Injectable()
 export class ImageService {
     private _image: any
     private _imageData: ImageData
     private _imageType: any
+    private _canvasElement: any
     private _originalSubject: Subject<any> = new Subject<any>()
     private _modifiedSubject: Subject<any> = new Subject<any>()
 
@@ -33,6 +33,14 @@ export class ImageService {
 
     getImageType() {
         return this._imageType
+    }
+
+    setCanvasElement(canvas) {
+        this._canvasElement = canvas
+    }
+
+    getCanvasElement() {
+        return this._canvasElement
     }
 
     setOriginalImageObject(img: any) {

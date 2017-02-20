@@ -45,7 +45,6 @@ export class FiltersService {
     }
 
     sepia(currentImageData) {
-        debugger
         let width: number = currentImageData.width
         let height: number = currentImageData.height
         let newPixels = currentImageData.data

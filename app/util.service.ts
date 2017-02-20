@@ -1,13 +1,12 @@
 import { Injectable } from "@angular/core"
 import { ImageService } from "./image.service"
-import { readFile } from "fs"
+import { readFile, writeFile } from "fs"
 export const { remote } = electron
 export const { dialog } = remote
 let filetype = require("node_modules/file-type")
 
 @Injectable()
 export class UtilService {
-
     constructor(private _ImageService: ImageService) {}
 
     openFileDialog() {
@@ -57,6 +56,36 @@ export class UtilService {
     }
 
     saveFileDialog() {
-        alert("Saved new image to disk.")
+        return new Promise((resolve, reject) => {
+            dialog.showSaveDialog((filename) => {
+                if(filename === undefined) {
+                    console.log("Didn't save the file.")
+                    resolve()
+                } else {
+                    let canvas = this._ImageService.getCanvasElement().nativeElement
+                    let content = canvas.toDataURL("image/png").replace(/^data:image\/(png|jpg);base64,/, "")
+                    let buffer = new Buffer(content, "base64")
+                    this.saveImageToFile(filename, buffer)
+                        .then(() => {
+                            resolve()
+                        })
+                        .catch(err => {
+                            reject(err)
+                        })
+                }
+            })
+        })
+    }
+
+    saveImageToFile(filename, buffer) {
+        return new Promise((resolve, reject) => {
+            writeFile(filename, buffer, (err) => {
+                if(err) {
+                    reject(err)
+                } else {
+                    resolve()
+                }
+            })
+        })
     }
 }

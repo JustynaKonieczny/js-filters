@@ -48,6 +48,12 @@ export class Header {
 
     handleSaveFile() {
         this._UtilService.saveFileDialog()
+            .then(() => {
+                alert("Successfully saved the file.")
+            })
+            .catch(err => {
+                console.log("Error saving image data to file.", err)
+            })
     }
 
     handleBlur() {
